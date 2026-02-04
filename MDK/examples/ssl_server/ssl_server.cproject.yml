@@ -1,6 +1,10 @@
 # A project translates into one executable or library.
 project:
 
+  define:
+    - MBEDTLS_CONFIG_FILE: \"app_mbedtls_config.h\"
+    - TF_PSA_CRYPTO_CONFIG_FILE: \"app_crypto_config.h\"
+
   add-path:
     - ../tests/include
 
@@ -11,6 +15,8 @@ project:
     - group: Source Files
       files:
         - file: app_main.c
+        - file: app_mbedtls_config.h
+        - file: app_crypto_config.h
         - file: ssl_server.c
         - file: ../tests/src/certs.c
 
