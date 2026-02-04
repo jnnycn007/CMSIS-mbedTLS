@@ -1,6 +1,8 @@
+#define MBEDTLS_DECLARE_PRIVATE_IDENTIFIERS
+
 #include <stdint.h>
 #include "mbedtls/pkcs7.h"
-#include "common.h"
+#include "fuzz_common.h"
 
 int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size)
 {

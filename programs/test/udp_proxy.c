@@ -12,8 +12,11 @@
  */
 
 
+#define MBEDTLS_DECLARE_PRIVATE_IDENTIFIERS
+
 #include "mbedtls/build_info.h"
 
+#include <limits.h>
 #include <stdlib.h>
 #if defined(MBEDTLS_PLATFORM_C)
 #include "mbedtls/platform.h"
@@ -49,11 +52,6 @@ int main(void)
 /* For select() */
 #if (defined(_WIN32) || defined(_WIN32_WCE)) && !defined(EFIX64) && \
     !defined(EFI32)
-
-#if defined(_MSC_VER)
-#pragma warning(disable : 5105) // warning inside winbase.h in C11 mode
-#endif
-
 #include <winsock2.h>
 #include <windows.h>
 #if defined(_MSC_VER)
